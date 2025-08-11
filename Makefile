@@ -14,8 +14,8 @@ push:
 	kind load docker-image trades:dev --name rwml-34fa
 
 deploy: build push
-	kubectl delete -f deployments/dev/trades/trades.yaml
+# 	kubectl delete -f deployments/dev/trades/trades.yaml
 	kubectl apply -f deployments/dev/trades/trades.yaml
 
-
-
+lint:
+	ruff check . --fix
