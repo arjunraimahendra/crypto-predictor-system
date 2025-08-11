@@ -10,8 +10,12 @@ dependencies = [
     "pydantic>=2.11.7",
     "quixstreams>=3.22.0",
     "requests>=2.32.4",
+    "trades",
     "websocket-client>=1.8.0",
 ]
 
 [tool.uv.workspace]
 members = ["services/trades"]
+
+[tool.uv.sources]
+trades = { workspace = true }

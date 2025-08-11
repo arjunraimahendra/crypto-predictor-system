@@ -59,10 +59,15 @@ def run(
 
 
 if __name__ == "__main__":
-    api = KrakenAPI(product_ids=['BTC/EUR'])
+    from trades.config import config
+
+    api = KrakenAPI(product_ids=config.product_ids)
 
     run(
-        kafka_broker_address='localhost:31234',
-        kafka_topic_name='trades',
+        # kafka_broker_address='localhost:31234',
+        # kafka_broker_address='kafka-e11b-kafka-bootstrap.kafka.svc.cluster.local:9092',
+        # kafka_topic_name='trades',
+        kafka_broker_address=config.kafka_broker_address,
+        kafka_topic_name=config.kafka_topic_name,
         kraken_api=api,
     )
