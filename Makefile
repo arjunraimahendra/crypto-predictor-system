@@ -4,18 +4,18 @@ installpackages:
 
 # Runs the trades service as a standalone Pyton app (not Dockerized)
 dev:
-	uv run services/trades/src/trades/main.py
+	uv run services/${service}/src/${service}/main.py
 
 # Builds and pushes the docker image to the given environment
 build:
-	docker build -t trades:dev -f docker/trades.dockerfile .
+	docker build -t ${service}:dev -f docker/${service}.dockerfile .
 
 push:
-	kind load docker-image trades:dev --name rwml-34fa
+	kind load docker-image ${service}:dev --name rwml-34fa
 
 deploy: build push
-# 	kubectl delete -f deployments/dev/trades/trades.yaml
-	kubectl apply -f deployments/dev/trades/trades.yaml
+	kubectl delete -f deployments/dev/${service}/${service}.yaml --ignore-not-found=true
+	kubectl apply -f deployments/dev/${service}/${service}.yaml
 
 lint:
 	ruff check . --fix
