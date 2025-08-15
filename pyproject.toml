@@ -11,19 +11,28 @@ dependencies = [
     "pydantic>=2.11.7",
     "quixstreams>=3.22.0",
     "requests>=2.32.4",
+    "ta-lib==0.6.4",
+    "technical-indicators",
     "trades",
     "websocket-client>=1.8.0",
+]
+
+[project.optional-dependencies]
+talib = [
+    "ta-lib>=0.6.3",
 ]
 
 [tool.uv.workspace]
 members = [
     "services/trades",
     "services/candles",
+    "services/technical_indicators",
 ]
 
 [tool.uv.sources]
 trades = { workspace = true }
 candles = { workspace = true }
+technical-indicators = { workspace = true }
 
 
 [tool.ruff]

@@ -66,4 +66,5 @@ if __name__ == '__main__':
         kafka_broker_address=config.kafka_broker_address,
         kafka_topic_name=config.kafka_topic_name,
         kraken_api=api,
+        # kafka_topic_partitions=config.kafka_topic_partitions
     )

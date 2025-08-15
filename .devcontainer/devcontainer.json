@@ -11,6 +11,11 @@
     "name": "py-3.13-bookworm",
     "image": "python:3.13-bookworm",
 
+    // Host requirements - specify minimum storage needed
+    "hostRequirements": {
+        "storage": "32gb"
+    },
+
     //"build": {
     //  "context": "..",
     //  "dockerfile": "Dockerfile"

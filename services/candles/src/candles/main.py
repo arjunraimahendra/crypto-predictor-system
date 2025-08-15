@@ -91,13 +91,19 @@ def run(
     app = Application(
         broker_address=kafka_broker_address,
         consumer_group=kafka_consumer_group,
+        auto_create_topics=True,
     )
+
+    logger.info('Clearing potentially corrupted state...')
+    # Add this line to clear corrupted state
+    app.clear_state()
+    logger.info('State cleared successfully')
 
     # input topic
     trades_topic = app.topic(
         kafka_input_topic,
         value_deserializer='json',
-        # timestamp_extractor=custom_ts_extractor,
+        timestamp_extractor=custom_ts_extractor,
     )
     # output topic
     candles_topic = app.topic(

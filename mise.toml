@@ -11,3 +11,15 @@ KUBECONFIG = "{{config_root}}/kubeconfig"
 "aqua:kubernetes/kubectl" = "1.32.3"
 "aqua:mikefarah/yq" = "4.45.1"
 "aqua:derailed/k9s" = "0.40.10"
+
+# Additional tools from devcontainer features
+"direnv" = "latest"
+"tmux" = "latest"
+"pre-commit" = "latest"
+"kind" = "latest"
+
+# Docker - mise has docker support but limited
+# For full docker-in-docker, you might need system-level installation
+
+# PostgreSQL client
+"postgres" = "latest"  # This includes psql client

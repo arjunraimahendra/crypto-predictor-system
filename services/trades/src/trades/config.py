@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     ]
     kafka_broker_address: str
     kafka_topic_name: str
+    kafka_topic_partitions: int
     live_or_historical: Literal['live', 'historical'] = 'live'
     last_n_days: int = 30
 
